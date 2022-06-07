@@ -25,7 +25,7 @@ class Castle(
     fun getVisitorWhoWon() = windows.filter {
         it.status &&
         windows.indexOf(it)-1 >= 0 &&
-        windows.indexOf(it)+1 <= windows.size &&
+        windows.indexOf(it)+1 < windows.size &&
         !windows[windows.indexOf(it)-1].status &&
         !windows[windows.indexOf(it)+1].status
     }.map { it.id }
