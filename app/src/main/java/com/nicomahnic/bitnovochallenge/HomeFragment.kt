@@ -44,7 +44,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 binding.tvSwitch.text = "Windows start open"
             else
                 binding.tvSwitch.text = "Windows start closed"
-            
+
             castleWindows.createWindows(64, binding.switchWindow.isChecked)
             reset()
 
