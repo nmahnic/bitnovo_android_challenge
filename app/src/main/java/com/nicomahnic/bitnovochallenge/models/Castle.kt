@@ -1,14 +1,14 @@
 package com.nicomahnic.bitnovochallenge.models
 
 class Castle(
-//    var windows: MutableList<OpenWindow> = mutableListOf(),
-    var windows: MutableList<ClosedWindow> = mutableListOf(),
+    var windows: MutableList<Window> = mutableListOf(),
 ) {
 
-    fun createWindows(quantity: Int){
+    fun createWindows(quantity: Int, windowState: Boolean = true){
+        windows = mutableListOf()
         for( windowId in  (quantity downTo 1) ){
-//            this.windows.add(0, OpenWindow( windowId ) )
-            this.windows.add(0, ClosedWindow( windowId ) )
+            if(windowState) windows.add(0, OpenWindow( windowId ) )
+            else windows.add(0, ClosedWindow( windowId ) )
         }
         reset()
     }

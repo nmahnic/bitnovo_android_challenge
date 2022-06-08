@@ -4,12 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.nicomahnic.bitnovochallenge.R
-import com.nicomahnic.bitnovochallenge.models.ClosedWindow
-import com.nicomahnic.bitnovochallenge.models.OpenWindow
+import com.nicomahnic.bitnovochallenge.models.Window
 
 class WindowAdapter(
-//    private var windowList: MutableList<OpenWindow>,
-    private var windowList: MutableList<ClosedWindow>,
+    private var windowList: MutableList<Window>,
 ) : RecyclerView.Adapter<WindowViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WindowViewHolder {

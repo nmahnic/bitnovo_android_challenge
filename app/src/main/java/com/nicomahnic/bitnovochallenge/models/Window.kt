@@ -1,9 +1,5 @@
 package com.nicomahnic.bitnovochallenge.models
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
-
-
 interface Window {
 
     val id: Int

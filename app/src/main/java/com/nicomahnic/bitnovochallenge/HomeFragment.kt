@@ -28,12 +28,30 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.btnReset.setOnClickListener(btnResetListener)
         binding.btnStep.setOnClickListener(btnStepListener)
 
+        binding.switchWindow.setOnClickListener(switchListener)
+
         castleWindows.createWindows(64)
 
         binding.rvWindows.layoutManager = GridLayoutManager(requireContext(), 4)
         adapter = WindowAdapter(castleWindows.windows)
         binding.rvWindows.adapter = adapter
 
+    }
+
+    private val switchListener = object : View.OnClickListener{
+        override fun onClick(p0: View?) {
+            if(binding.switchWindow.isChecked)
+                binding.tvSwitch.text = "Windows start open"
+            else
+                binding.tvSwitch.text = "Windows start closed"
+            
+            castleWindows.createWindows(64, binding.switchWindow.isChecked)
+            reset()
+
+            binding.rvWindows.layoutManager = GridLayoutManager(requireContext(), 4)
+            adapter = WindowAdapter(castleWindows.windows)
+            binding.rvWindows.adapter = adapter
+        }
     }
 
     private val btnStepListener = object : View.OnClickListener{
@@ -52,13 +70,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val btnResetListener = object : View.OnClickListener{
         override fun onClick(p0: View?) {
-            castleWindows.reset()
-            idVisitor = 1
-            adapter.notifyDataSetChanged()
-
-            binding.tvRule1Value.text = castleWindows.getVisitorWhoWon().size.toString()
-            binding.tvRule2Value.text = castleWindows.getVisitorWhoWon2().size.toString()
+            reset()
         }
+    }
+
+    private fun reset(){
+        castleWindows.reset()
+        idVisitor = 1
+        adapter.notifyDataSetChanged()
+
+        binding.tvRule1Value.text = castleWindows.getVisitorWhoWon().size.toString()
+        binding.tvRule2Value.text = castleWindows.getVisitorWhoWon2().size.toString()
     }
 
     private fun setButtonClickable(state: Boolean){
