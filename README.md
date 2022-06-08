@@ -1,3 +1,3 @@
 # bitnovo_android_challenge
 
-![Demo](https://github.com/nmahnic/bitnovo_android_challenge/blob/master/demo.mov)
+![Demo](https://raw.githubusercontent.com/nmahnic/bitnovo_android_challenge/master/demo.mov)
